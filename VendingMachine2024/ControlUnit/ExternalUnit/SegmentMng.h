@@ -1,21 +1,26 @@
 #pragma once
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// セグメント管理クラス
+// ・データの扱い方の定義や保存しておくクラス
+// ・起動時の情報となる
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "../../UtilityUnit/Utility.h"
 
 #include <vector>
 #include <string>
 #include <unordered_map>
 
-typedef std::vector<std::string>	Record;			// 1行分のデータ
-typedef std::vector<Record>			RecordVec;		// 複数行のデータ
+using Record	= VectorTemp<std::string>;
+using RecordVec	= VectorTemp<Record>;
 //! 1塊(=セグメント)のデータ
 struct SegmentData{
 	Record		_sectionName;		// 値の説明
 	RecordVec	_dataList;			// データ群
 };
 
-typedef std::string										SegmentType;		// セグメント種別
-typedef std::vector<SegmentType>						SegmentTypeVec;		// セグメント種別の一覧
-typedef std::unordered_map<SegmentType, SegmentData>	SegmentUnmap;		// 全データマップ
+using SegmentType		= std::string;									// セグメント種別
+using SegmentTypeVec	= VectorTemp<SegmentType>;
+using SegmentUnmap		= std::unordered_map<SegmentType, SegmentData>;		// 全データマップ
 
 class SegmentMng
 {

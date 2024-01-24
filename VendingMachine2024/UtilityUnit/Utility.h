@@ -1,11 +1,14 @@
 #pragma once
-
+#include <vector>
 //! ˆ—Œ‹‰Ê
 enum PROCESSES_RESULT
 {
-	FALSE	= 0,		// ¸”s
-	TRUE	= 1			// ¬Œ÷
+	FALSE	= false,		// ¸”s
+	TRUE	= true			// ¬Œ÷
 };
+
+template<class T>
+using VectorTemp = std::vector<T>;
 
 class Utility
 {
