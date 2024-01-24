@@ -1,0 +1,13 @@
+[Drink]
+Kind,Price,Inventory
+tea,150,10
+coffee,110,5
+water,90,0
+
+[Money]
+Kind,Inventory
+1000,8
+500,1
+100,10
+50,2
+10,20
