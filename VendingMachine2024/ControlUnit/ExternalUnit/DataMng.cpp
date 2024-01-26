@@ -54,9 +54,20 @@ PROCESSES_RESULT DataMng::create_segmentMng(FileData& fileData)
 // 引数　fileData：ファイルデータ、segmentRegistVec：セグメント登録用リスト
 PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistVec(FileData& fileData, SegmentRegistVec& segmentRegistVec)
 {
+	FileData forOneSegment;
 	for( auto it = fileData.begin(); it != fileData.end(); ){
-		
-		++it;
+		// 種別のレコードではない場合、セクジョン名又はデータ部を見ているため、セグメントデータ内に登録
+		// 登録開始時は種別のレコードを見るため、1セグメント登録用データが空の場合はデータ登録
+		int found = it[0][0].find( "[" );
+		if( (found == std::string::npos) || (forOneSegment.empty() == true) ){
+			forOneSegment.push_back( *it );
+			++it;
+			continue;
+		}
+		SegmentRegistFormat segmentRegistFormat;
+		convert_fileDataToSegmentRegistFormat( forOneSegment, segmentRegistFormat );
+		segmentRegistVec.push_back( segmentRegistFormat );
+		forOneSegment.clear();
 	}
 	return TRUE;
 }
