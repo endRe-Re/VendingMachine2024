@@ -1,7 +1,6 @@
 #include "DataMng.h"
 #include "FileSystem.h"
 #include "SegmentMng.h"
-#include <iterator>
 
 DataMng::DataMng()
 : _fileSystem(nullptr),
@@ -63,7 +62,7 @@ PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistVec(FileData& fileData,
 			doConvert = true;
 		}
 		if( doConvert == false ){
-			int found = it[0][0].find("[");
+			size_t found = it[0][0].find("[");
 			// 次のセグメントに到達したため、1セグメントとして変換
 			if( (found != std::string::npos) && (forOneSegment.empty() == false) ){
 				doConvert = true;
@@ -88,6 +87,9 @@ PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistVec(FileData& fileData,
 // 1セグメント分のファイルデータからセグメント登録用フォーマットへ変換する
 PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, SegmentRegistFormat& segmentRegistFormat)
 {
+	if( (unsigned long)forOneSegment.size() < SEGMENT_SIZE_MIN ){
+		return FALSE;
+	}
 	auto convertPoint						= forOneSegment.begin();
 	// セグメント種別とセクション名を取得
 	segmentRegistFormat.first				= (*convertPoint)[0];
