@@ -22,6 +22,8 @@ using SegmentType		= std::string;									// セグメント種別
 using SegmentTypeVec	= VectorTemp<SegmentType>;
 using SegmentUnmap		= std::unordered_map<SegmentType, SegmentData>;		// 全データマップ
 
+#define SEGMENT_SIZE_MIN 3
+
 class SegmentMng
 {
 public:

@@ -54,27 +54,39 @@ PROCESSES_RESULT DataMng::create_segmentMng(FileData& fileData)
 // 引数　fileData：ファイルデータ、segmentRegistVec：セグメント登録用リスト
 PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistVec(FileData& fileData, SegmentRegistVec& segmentRegistVec)
 {
+	PROCESSES_RESULT	retVal = TRUE;
 	FileData forOneSegment;
-	for( auto it = fileData.begin(); it != fileData.end(); ){
-		// 種別のレコードではない場合、セクジョン名又はデータ部を見ているため、セグメントデータ内に登録
-		// 登録開始時は種別のレコードを見るため、1セグメント登録用データが空の場合はデータ登録
-		int found = it[0][0].find( "[" );
-		if( (found == std::string::npos) || (forOneSegment.empty() == true) ){
-			forOneSegment.push_back( *it );
-			++it;
-			continue;
+	for( auto it = fileData.begin(); retVal == TRUE; ){
+		// ファイル終端に到達したため、1セグメントとして変換
+		bool doConvert = false;
+		if( it == fileData.end() ){
+			doConvert = true;
 		}
-		SegmentRegistFormat segmentRegistFormat;
-		convert_fileDataToSegmentRegistFormat( forOneSegment, segmentRegistFormat );
-		segmentRegistVec.push_back( segmentRegistFormat );
-		forOneSegment.clear();
+		if( doConvert == false ){
+			int found = it[0][0].find("[");
+			// 次のセグメントに到達したため、1セグメントとして変換
+			if( (found != std::string::npos) && (forOneSegment.empty() == false) ){
+				doConvert = true;
+			}
+		}
+		if( doConvert == true ){
+			// 登録用リストに1セグメント分のデータを登録する
+			SegmentRegistFormat segmentRegistFormat;
+			retVal = convert_fileDataToSegmentRegistFormat( forOneSegment, segmentRegistFormat );
+			segmentRegistVec.push_back( segmentRegistFormat );
+			forOneSegment.clear();
+		}
+		if( it == fileData.end() ){
+			break;	// ファイル読み込み終了
+		}
+		forOneSegment.push_back( *it );
+		++it;
 	}
 	return TRUE;
 }
 
 // 1セグメント分のファイルデータからセグメント登録用フォーマットへ変換する
-// この関数に渡る時点でフォーマットは担保されてなければならない
-void DataMng::convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, SegmentRegistFormat& segmentRegistFormat)
+PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, SegmentRegistFormat& segmentRegistFormat)
 {
 	auto convertPoint						= forOneSegment.begin();
 	// セグメント種別とセクション名を取得
@@ -84,6 +96,10 @@ void DataMng::convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, Seg
 	++convertPoint;
 	// データ部を取得
 	for( convertPoint; convertPoint != forOneSegment.end(); ++convertPoint ){
-		segmentRegistFormat.second._sectionName = *convertPoint;
+		if( segmentRegistFormat.second._sectionName.size() != (*convertPoint).size() ){
+			return FALSE;	// セクションネーム分データがない場合、エラー
+		}
+		segmentRegistFormat.second._dataList.push_back( *convertPoint );
 	}
+	return TRUE;
 }
