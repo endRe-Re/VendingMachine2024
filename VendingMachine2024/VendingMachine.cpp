@@ -3,7 +3,7 @@
 #include "UtilityUnit/Utility.h"
 
 VendingMachine::VendingMachine()
-: _mainControl( nullptr )
+: _mainControl(nullptr)
 {
 
 }
