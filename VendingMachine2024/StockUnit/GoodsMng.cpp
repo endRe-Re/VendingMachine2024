@@ -4,8 +4,9 @@ GoodsMng::GoodsMng()
 {
 }
 
-void GoodsMng::regist_goodsData(GoodsName goodsName, GoodsData goodsData)
+void GoodsMng::regist_goodsData(GoodsName& goodsName, GoodsData& goodsData)
 {
+	// ìoò^çœÇ›ÇÃèÍçáÅAç›å…ÇÃí«â¡
 	if( _goodsDataUnmap.count(goodsName) != 0 ){
 		goodsData._stock += _goodsDataUnmap[goodsName]._stock;
 	}

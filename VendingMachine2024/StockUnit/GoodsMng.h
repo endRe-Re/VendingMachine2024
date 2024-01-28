@@ -17,7 +17,7 @@ class GoodsMng
 {
 public:
 	GoodsMng();
-	void regist_goodsData(GoodsName goodsName, GoodsData goodsData);
+	void regist_goodsData(GoodsName& goodsName, GoodsData& goodsData);
 
 private:
 	GoodsDataUnmap	_goodsDataUnmap;

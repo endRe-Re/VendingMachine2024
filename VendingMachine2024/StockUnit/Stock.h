@@ -1,5 +1,4 @@
 #pragma once
-#include "../UtilityUnit/Utility.h"
 #include "GoodsMng.h"
 
 struct GoodsInfo
