@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.38.33134.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/ry_endo/source/repos/vendingmachine2024/vendingmachine2024/controlunit/externalunit/segmentmng.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "73f5eb380269252cbc024c2503dcc50cad000b88b824992fddd6f310aea4eaf4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/ry_endo/source/repos/vendingmachine2024/vendingmachine2024/controlunit/externalunit/segmentmng.h"
+          },
+          "hashes": {
+            "sha-256": "3a143d4f228f2dc70d0ad595e3d5ed29247fb386fd8d5a5064f8e85d5074f073"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/ry_endo/source/repos/vendingmachine2024/vendingmachine2024/utilityunit/utility.h"
+          },
+          "hashes": {
+            "sha-256": "45caa0f1c72edc03a66cfd536bff950cc1bce9ff6524b14871207c64e46f91da"
+          }
+        }
+      ]
+    }
+  ]
+}

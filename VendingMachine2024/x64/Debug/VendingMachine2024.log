@@ -1,2 +1,11 @@
-﻿  DataMng.cpp
+﻿  ExternalControl.cpp
+  MainControl.cpp
+  DataMng.cpp
+  FileSystem.cpp
+  SegmentMng.cpp
+  main.cpp
+  Utility.cpp
+  VendingMachine.cpp
+  C/C++ のコード分析を実行しています...
+  コードを生成中...
   VendingMachine2024.vcxproj -> C:\Users\ry_endo\source\repos\VendingMachine2024\x64\Debug\VendingMachine2024.exe
