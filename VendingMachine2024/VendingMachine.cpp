@@ -11,6 +11,8 @@ VendingMachine::~VendingMachine()
 {
 	delete _mainControl;
 	delete _stockMng;
+	_mainControl	= nullptr;
+	_stockMng		= nullptr;
 }
 
 bool VendingMachine::activation()
