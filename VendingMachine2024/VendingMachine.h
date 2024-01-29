@@ -16,6 +16,7 @@ public:
 	bool activation();				// ‹N“®
 
 private:
+	PROCESSES_RESULT create();
 	PROCESSES_RESULT create_stockMng();
 	PROCESSES_RESULT convert_segmentDataToGoodsInfoVec(SegmentData& segmentData, GoodsInfoVec& goodsInfoVec);
 

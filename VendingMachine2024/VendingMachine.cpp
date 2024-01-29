@@ -17,25 +17,33 @@ VendingMachine::~VendingMachine()
 
 bool VendingMachine::activation()
 {
-	// メイン制御クラス作成
-	_mainControl = new MainControl();
-	if( _mainControl == nullptr ){
-		return false;
-	}
-	if( _mainControl->create() == FALSE ){
-		return false;
-	}
-
-	// 在庫管理クラス作成
-	_stockMng = new StockMng();
-	if( _stockMng == nullptr ){
-		return false;
-	}
-	if( create_stockMng() == FALSE ){
+	if( create() == FALSE ){
 		return false;
 	}
 	
 	return true;
+}
+
+PROCESSES_RESULT VendingMachine::create()
+{
+	// メイン制御クラス作成
+	_mainControl = new MainControl();
+	if (_mainControl == nullptr){
+		return FALSE;
+	}
+	if (_mainControl->create() == FALSE){
+		return FALSE;
+	}
+
+	// 在庫管理クラス作成
+	_stockMng = new StockMng();
+	if (_stockMng == nullptr){
+		return FALSE;
+	}
+	if (create_stockMng() == FALSE){
+		return FALSE;
+	}
+	return TRUE;
 }
 
 PROCESSES_RESULT VendingMachine::create_stockMng()
