@@ -6,16 +6,17 @@ class Stock;
 
 using StockVec = VectorTemp<Stock*>;
 
-enum GOODS_INDEX
+enum GOODS_INDEX_ENUM
 {
-	DRINK_INDEX	= 0,
-	MONEY_INDEX
+	GOODS_INDEX_DRINK	= 0,
+	GOODS_INDEX_MONEY
 };
 
 class StockMng
 {
 public:
 	StockMng();
+	~StockMng();
 
 	PROCESSES_RESULT create(GoodsInfoVec& drinkInfoVec, GoodsInfoVec& moneyInfoVec);
 	PROCESSES_RESULT create_forBuyerMoney(GoodsInfoVec& moneyInfoVec);

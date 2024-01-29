@@ -5,7 +5,7 @@ SegmentMng::SegmentMng()
 {
 }
 
-PROCESSES_RESULT SegmentMng::add_segment(SegmentType segmentType, SegmentData segmentData)
+PROCESSES_RESULT SegmentMng::add_segment(SegmentType& segmentType, SegmentData& segmentData)
 {
 	// セグメント種別と指定セグメントのスクション名は未登録の場合のみ登録
 	if( std::find(_segmentTypeVec.begin(), _segmentTypeVec.end(), segmentType) == _segmentTypeVec.end() ){
@@ -16,4 +16,14 @@ PROCESSES_RESULT SegmentMng::add_segment(SegmentType segmentType, SegmentData se
 	std::copy( segmentData._dataList.begin(), segmentData._dataList.end(), std::back_inserter(_segmentUnmap[segmentType]._dataList) );
 	
 	return TRUE;
+}
+
+SegmentData SegmentMng::get_segmentData(SegmentType& segmentType)
+{
+	SegmentData retVal;
+	if( _segmentUnmap.count(segmentType) != NO_EXIST_KEY ){
+		retVal = _segmentUnmap[segmentType];
+	}
+
+	return retVal;
 }

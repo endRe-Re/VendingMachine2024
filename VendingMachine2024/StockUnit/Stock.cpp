@@ -7,9 +7,8 @@ Stock::Stock()
 
 Stock::~Stock()
 {
-	if( _seller != nullptr ){
-		delete _seller;
-	}
+	delete _seller;
+	_seller = nullptr;
 }
 
 PROCESSES_RESULT Stock::create(GoodsInfoVec& goodsInfoVec)

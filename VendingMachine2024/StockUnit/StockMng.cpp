@@ -4,22 +4,30 @@ StockMng::StockMng()
 {
 }
 
+StockMng::~StockMng()
+{
+	for( auto stock : _stockVec ){
+		delete stock;
+		stock = nullptr;
+	}
+}
+
 PROCESSES_RESULT StockMng::create(GoodsInfoVec& drinkInfoVec, GoodsInfoVec& moneyInfoVec)
 {
 	// 飲み物在庫クラスの作成
-	_stockVec[DRINK_INDEX] = new DrinkStock();
-	if( _stockVec[DRINK_INDEX] == nullptr ){
+	_stockVec[GOODS_INDEX_DRINK] = new DrinkStock();
+	if( _stockVec[GOODS_INDEX_DRINK] == nullptr ){
 		return FALSE;
 	}
-	if( _stockVec[DRINK_INDEX]->create(drinkInfoVec) == FALSE ){
+	if( _stockVec[GOODS_INDEX_DRINK]->create(drinkInfoVec) == FALSE ){
 		return FALSE;
 	}
 	// お金在庫クラスの作成
-	_stockVec[MONEY_INDEX] = new MoneyStock();
-	if( _stockVec[MONEY_INDEX] == nullptr){
+	_stockVec[GOODS_INDEX_MONEY] = new MoneyStock();
+	if( _stockVec[GOODS_INDEX_MONEY] == nullptr){
 		return FALSE;
 	}
-	if( _stockVec[MONEY_INDEX]->create(moneyInfoVec) == FALSE ){
+	if( _stockVec[GOODS_INDEX_MONEY]->create(moneyInfoVec) == FALSE ){
 		return FALSE;
 	}
 

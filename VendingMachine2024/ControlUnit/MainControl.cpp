@@ -1,10 +1,15 @@
 #include "MainControl.h"
-#include "ExternalUnit/ExternalControl.h"
 
 
 MainControl::MainControl()
 : _externalControl(nullptr)
 {
+}
+
+MainControl::~MainControl()
+{
+	delete _externalControl;
+	_externalControl = nullptr;
 }
 
 PROCESSES_RESULT MainControl::create()

@@ -4,8 +4,7 @@
 // ・データのやりとりや命令を中継するクラス
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "../UtilityUnit/Utility.h"
-
-class ExternalControl;
+#include "ExternalUnit/ExternalControl.h"
 
 class MainControl
 {
@@ -14,6 +13,14 @@ public:
 
 	PROCESSES_RESULT create();		// 自クラスを含む各制御クラスの作成
 
+	SegmentData get_segmentData(SegmentType& segmentType);
+
 private:
-	ExternalControl* _externalControl;				// データ管理クラス
+	ExternalControl* _externalControl;				// 外部制御クラス
 };
+
+
+inline SegmentData MainControl::get_segmentData(SegmentType& segmentType)
+{
+	return _externalControl->get_segmentData( segmentType );
+}

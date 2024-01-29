@@ -11,6 +11,9 @@ DataMng::DataMng()
 DataMng::~DataMng()
 {
 	delete _fileSystem;
+	delete _segmentMng;
+	_fileSystem = nullptr;
+	_segmentMng = nullptr;
 }
 
 PROCESSES_RESULT DataMng::create()

@@ -7,12 +7,10 @@ MoneyStock::MoneyStock()
 
 MoneyStock::~MoneyStock()
 {
-	if( _seller != nullptr ){
-		delete _seller;
-	}
-	if( _buyer != nullptr ){
-		delete _buyer;
-	}
+	delete _seller;
+	delete _buyer;
+	_seller	= nullptr;
+	_buyer	= nullptr;
 }
 
 PROCESSES_RESULT MoneyStock::create(GoodsInfoVec& goodsInfoVec)

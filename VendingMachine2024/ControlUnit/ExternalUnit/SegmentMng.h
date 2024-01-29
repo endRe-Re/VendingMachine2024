@@ -28,7 +28,8 @@ class SegmentMng
 public:
 	SegmentMng();
 
-	PROCESSES_RESULT add_segment(SegmentType segmentType, SegmentData segmentData);
+	PROCESSES_RESULT add_segment(SegmentType& segmentType, SegmentData& segmentData);
+	SegmentData get_segmentData(SegmentType& segmentType);
 
 private:
 	SegmentTypeVec	_segmentTypeVec;		// ƒZƒOƒƒ“ƒgí•Ê‚Ìˆê——

@@ -24,6 +24,8 @@ public:
 
 	PROCESSES_RESULT create();										// 下位クラスのインスタンス生成
 
+	SegmentData get_segmentData(SegmentType& segmentType);
+
 private:
 	PROCESSES_RESULT create_segmentMng(FileData& fileData);																// セグメント管理クラスへの情報登録
 	PROCESSES_RESULT convert_fileDataToSegmentRegistVec(FileData& fileData, SegmentRegistVec& segmentRegistVec);		//
@@ -32,3 +34,8 @@ private:
 	FileSystem*		_fileSystem;			// ファイルシステムクラス
 	SegmentMng*		_segmentMng;			// セグメント管理クラス
 };
+
+inline SegmentData DataMng::get_segmentData(SegmentType& segmentType)
+{
+	return _segmentMng->get_segmentData( segmentType );
+}

@@ -1,9 +1,14 @@
 #include "ExternalControl.h"
-#include "DataMng.h"
 
 ExternalControl::ExternalControl()
 : _dataMng(nullptr)
 {
+}
+
+ExternalControl::~ExternalControl()
+{
+	delete _dataMng;
+	_dataMng = nullptr;
 }
 
 PROCESSES_RESULT ExternalControl::create()
