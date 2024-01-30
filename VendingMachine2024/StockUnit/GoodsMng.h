@@ -4,12 +4,12 @@
 #include <unordered_map>
 
 using GoodsName	= std::string;
-using Value		= unsigned long;									// 価値
-using Stock		= unsigned long;									// 在庫
+using Value			= unsigned long;									// 価値
+using StockNum		= unsigned long;									// 在庫
 
 struct GoodsData{
-	Value	_value;		// 価値
-	Stock	_stock;		// 在庫
+	Value		_value;		// 価値
+	StockNum	_stock;		// 在庫
 };
 using GoodsDataUnmap = std::unordered_map<GoodsName, GoodsData>;
 

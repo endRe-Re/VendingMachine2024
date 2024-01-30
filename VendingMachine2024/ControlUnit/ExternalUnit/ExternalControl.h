@@ -11,6 +11,7 @@ class ExternalControl
 {
 public:
 	ExternalControl();
+	~ExternalControl();
 
 	PROCESSES_RESULT create();		// 自クラスを含む各制御クラスの作成
 

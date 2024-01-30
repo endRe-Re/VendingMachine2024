@@ -28,19 +28,19 @@ PROCESSES_RESULT VendingMachine::create()
 {
 	// メイン制御クラス作成
 	_mainControl = new MainControl();
-	if (_mainControl == nullptr){
+	if( _mainControl == nullptr ){
 		return FALSE;
 	}
-	if (_mainControl->create() == FALSE){
+	if( _mainControl->create() == FALSE ){
 		return FALSE;
 	}
 
 	// 在庫管理クラス作成
 	_stockMng = new StockMng();
-	if (_stockMng == nullptr){
+	if( _stockMng == nullptr ){
 		return FALSE;
 	}
-	if (create_stockMng() == FALSE){
+	if( create_stockMng() == FALSE ){
 		return FALSE;
 	}
 	return TRUE;
@@ -49,17 +49,13 @@ PROCESSES_RESULT VendingMachine::create()
 PROCESSES_RESULT VendingMachine::create_stockMng()
 {
 	// 飲み物情報の取得から在庫に設定する形への変換
-	SegmentType		targetType	= USE_SEGMENT_TYPE_DRINK;
-	SegmentData		segmentData = _mainControl->get_segmentData( targetType );
-	GoodsInfoVec	drinkInfoVec;
-	if( convert_segmentDataToGoodsInfoVec(segmentData, drinkInfoVec) == FALSE ){
+	GoodsInfoVec drinkInfoVec;
+	if( convert_segmentDataToGoodsInfoVec(USE_SEGMENT_TYPE_DRINK, drinkInfoVec) == FALSE ){
 		return FALSE;
 	}
 	// お金情報の取得から在庫に設定する形への変換
-	SegmentType		targetType	= USE_SEGMENT_TYPE_MONEY;
-	SegmentData		segmentData = _mainControl->get_segmentData( targetType );
-	GoodsInfoVec	moneyInfoVec;
-	if( convert_segmentDataToGoodsInfoVec(segmentData, moneyInfoVec) == FALSE ){
+	GoodsInfoVec moneyInfoVec;
+	if( convert_segmentDataToGoodsInfoVec(USE_SEGMENT_TYPE_MONEY, moneyInfoVec) == FALSE ){
 		return FALSE;
 	}
 	// 在庫管理クラスの作成、初期情報設定
@@ -69,7 +65,19 @@ PROCESSES_RESULT VendingMachine::create_stockMng()
 	return TRUE;
 }
 
-PROCESSES_RESULT VendingMachine::convert_segmentDataToGoodsInfoVec(SegmentData& segmentData, GoodsInfoVec& goodsInfoVec)
+PROCESSES_RESULT VendingMachine::convert_segmentDataToGoodsInfoVec(SegmentType targetType, GoodsInfoVec& goodsInfoVec)
 {
+	SegmentData segmentData = _mainControl->get_segmentData( targetType );
+	
+	for( auto dataRecord : segmentData._dataList ){
+		GoodsData	data;
+		if( targetType == USE_SEGMENT_TYPE_DRINK ){
+			data._value = std::stoi( dataRecord[1] );
+			data._stock = std::stoi( dataRecord[2] );
+		}
+		if( targetType == USE_SEGMENT_TYPE_MONEY ){
+			
+		}
+	}
 	return TRUE;
 }

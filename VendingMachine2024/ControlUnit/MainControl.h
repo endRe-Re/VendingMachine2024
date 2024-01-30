@@ -10,6 +10,7 @@ class MainControl
 {
 public:
 	MainControl();
+	~MainControl();
 
 	PROCESSES_RESULT create();		// 自クラスを含む各制御クラスの作成
 

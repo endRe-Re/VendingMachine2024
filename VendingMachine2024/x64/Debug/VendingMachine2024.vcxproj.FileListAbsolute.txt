@@ -1,2 +1,0 @@
-C:\Users\ry_endo\source\repos\VendingMachine2024\x64\Debug\VendingMachine2024.exe.lastcodeanalysissucceeded
-C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\NativeCodeAnalysis.read.1.tlog

@@ -133,6 +133,11 @@
     <ClCompile Include="ControlUnit\ExternalUnit\FileSystem.cpp" />
     <ClCompile Include="ControlUnit\ExternalUnit\SegmentMng.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StockUnit\DrinkStock.cpp" />
+    <ClCompile Include="StockUnit\GoodsMng.cpp" />
+    <ClCompile Include="StockUnit\MoneyStock.cpp" />
+    <ClCompile Include="StockUnit\Stock.cpp" />
+    <ClCompile Include="StockUnit\StockMng.cpp" />
     <ClCompile Include="UtilityUnit\Utility.cpp" />
     <ClCompile Include="VendingMachine.cpp" />
   </ItemGroup>
@@ -142,6 +147,11 @@
     <ClInclude Include="ControlUnit\ExternalUnit\DataMng.h" />
     <ClInclude Include="ControlUnit\ExternalUnit\FileSystem.h" />
     <ClInclude Include="ControlUnit\ExternalUnit\SegmentMng.h" />
+    <ClInclude Include="StockUnit\DrinkStock.h" />
+    <ClInclude Include="StockUnit\GoodsMng.h" />
+    <ClInclude Include="StockUnit\MoneyStock.h" />
+    <ClInclude Include="StockUnit\Stock.h" />
+    <ClInclude Include="StockUnit\StockMng.h" />
     <ClInclude Include="UtilityUnit\Utility.h" />
     <ClInclude Include="VendingMachine.h" />
   </ItemGroup>
