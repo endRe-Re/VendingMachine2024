@@ -13,16 +13,11 @@ MoneyStock::~MoneyStock()
 	_buyer	= nullptr;
 }
 
-PROCESSES_RESULT MoneyStock::create(GoodsInfoVec& goodsInfoVec)
+PROCESSES_RESULT MoneyStock::create_buyer(GoodsInfoVec& goodsInfoVec)
 {
 	// ç›å…ÇÃê∂ê¨
-	PROCESSES_RESULT retVal = create_stocker( goodsInfoVec, _seller );
+	PROCESSES_RESULT retVal = create_stocker( goodsInfoVec, _buyer );
 	if( retVal == FALSE ){
-		return FALSE;
-	}
-	// çwì¸ë§ÇÕóÃàÊÇÃÇ›çÏê¨ÇµÇƒÇ®Ç≠
-	_buyer = new GoodsMng;
-	if( _buyer == nullptr ){
 		return FALSE;
 	}
 	return TRUE;

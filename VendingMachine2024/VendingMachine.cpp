@@ -70,16 +70,17 @@ PROCESSES_RESULT VendingMachine::convert_segmentDataToGoodsInfoVec(SegmentType t
 	SegmentData segmentData = _mainControl->get_segmentData( targetType );
 	
 	for( auto dataRecord : segmentData._dataList ){
-		GoodsData data;
+		GoodsInfo	info;
 		if( targetType == USE_SEGMENT_TYPE_DRINK ){
-			data._value = std::stoi( dataRecord[1] );
-			data._stock = std::stoi( dataRecord[2] );
+			info._data._value = std::stoi( dataRecord[1] );
+			info._data._stock = std::stoi( dataRecord[2] );
 		}
 		if( targetType == USE_SEGMENT_TYPE_MONEY ){
-			data._value = std::stoi( dataRecord[0] );
-			data._stock = std::stoi( dataRecord[1] );
+			info._data._value = std::stoi( dataRecord[0] );
+			info._data._stock = std::stoi( dataRecord[1] );
 		}
-		goodsInfoVec.emplace_back( dataRecord[0], data );
+		info._name = dataRecord[0];
+		goodsInfoVec.push_back( info );
 	}
 	return TRUE;
 }

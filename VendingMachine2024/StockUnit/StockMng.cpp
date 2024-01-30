@@ -15,7 +15,7 @@ StockMng::~StockMng()
 PROCESSES_RESULT StockMng::create(GoodsInfoVec& drinkInfoVec, GoodsInfoVec& moneyInfoVec)
 {
 	// 飲み物在庫クラスの作成
-	_stockVec[GOODS_INDEX_DRINK] = new DrinkStock();
+	_stockVec.emplace_back( new DrinkStock() );
 	if( _stockVec[GOODS_INDEX_DRINK] == nullptr ){
 		return FALSE;
 	}
@@ -23,7 +23,7 @@ PROCESSES_RESULT StockMng::create(GoodsInfoVec& drinkInfoVec, GoodsInfoVec& mone
 		return FALSE;
 	}
 	// お金在庫クラスの作成
-	_stockVec[GOODS_INDEX_MONEY] = new MoneyStock();
+	_stockVec.emplace_back( new MoneyStock() );
 	if( _stockVec[GOODS_INDEX_MONEY] == nullptr){
 		return FALSE;
 	}

@@ -1,15 +1,7 @@
-﻿  ExternalControl.cpp
-  MainControl.cpp
-  DataMng.cpp
-  FileSystem.cpp
-  SegmentMng.cpp
-  main.cpp
-  DrinkStock.cpp
-  GoodsMng.cpp
-  MoneyStock.cpp
-  Stock.cpp
+﻿  MoneyStock.cpp
   StockMng.cpp
-  Utility.cpp
   VendingMachine.cpp
+  main.cpp
   コードを生成中...
+  LINK : 前回のインクリメンタル リンクで C:\Users\ry_endo\source\repos\VendingMachine2024\x64\Debug\VendingMachine2024.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   VendingMachine2024.vcxproj -> C:\Users\ry_endo\source\repos\VendingMachine2024\x64\Debug\VendingMachine2024.exe

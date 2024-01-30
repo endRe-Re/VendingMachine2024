@@ -7,7 +7,7 @@ public:
 	MoneyStock();
 	~MoneyStock();
 
-	PROCESSES_RESULT create(GoodsInfoVec& goodsInfoVec);
+	PROCESSES_RESULT create_buyer(GoodsInfoVec& goodsInfoVec);
 
 
 
