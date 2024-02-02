@@ -26,20 +26,20 @@ bool VendingMachine::activation()
 
 PROCESSES_RESULT VendingMachine::create()
 {
-	// メイン制御クラス作成
-	_mainControl = new MainControl();
-	if( _mainControl == nullptr ){
-		return FALSE;
-	}
-	if( _mainControl->create() == FALSE ){
-		return FALSE;
-	}
-
 	// 在庫管理クラス作成
 	_stockMng = new StockMng();
 	if( _stockMng == nullptr ){
 		return FALSE;
 	}
+	// メイン制御クラス作成
+	_mainControl = new MainControl();
+	if( _mainControl == nullptr ){
+		return FALSE;
+	}
+	if( _mainControl->create(_stockMng) == FALSE ){
+		return FALSE;
+	}
+
 	if( create_stockMng() == FALSE ){
 		return FALSE;
 	}

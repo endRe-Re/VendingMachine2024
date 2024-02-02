@@ -6,18 +6,22 @@
 #include "../UtilityUnit/Utility.h"
 #include "ExternalUnit/ExternalControl.h"
 
+class StockMng;
+class InternalControl;
+
 class MainControl
 {
 public:
 	MainControl();
 	~MainControl();
 
-	PROCESSES_RESULT create();		// 自クラスを含む各制御クラスの作成
+	PROCESSES_RESULT create(StockMng* stockMng);		// 自クラスを含む各制御クラスの作成
 
 	SegmentData get_segmentData(SegmentType& segmentType);
 
 private:
 	ExternalControl* _externalControl;				// 外部制御クラス
+	InternalControl* _internalControl;				// 内部制御クラス
 };
 
 
