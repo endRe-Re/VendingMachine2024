@@ -10,7 +10,7 @@ FileSystem::FileSystem()
 
 PROCESSES_RESULT FileSystem::load_file(FileData& fileData)
 {
-	std::ifstream	ifs( FILE_PATH );
+	std::ifstream ifs( FILE_PATH );
 	if( ifs.fail() ){
 		std::cerr << "Failed to open file." << std::endl;
 		return FALSE;

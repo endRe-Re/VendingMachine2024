@@ -2,7 +2,8 @@
 #include "InternalUnit/InternalControl.h"
 
 MainControl::MainControl()
-: _externalControl(nullptr)
+: _externalControl(nullptr),
+  _internalControl(nullptr)
 {
 }
 
@@ -15,18 +16,18 @@ MainControl::~MainControl()
 PROCESSES_RESULT MainControl::create(StockMng* stockMng)
 {
 	_externalControl = new ExternalControl();
-	if(_externalControl == nullptr ){
+	if( _externalControl == nullptr ){
 		return FALSE;
 	}
-	if(_externalControl->create() == FALSE ){
+	if( _externalControl->create() == FALSE ){
 		return FALSE;
 	}
 
 	_internalControl = new InternalControl();
-	if(_internalControl == nullptr ){
+	if( _internalControl == nullptr ){
 		return FALSE;
 	}
-	if(_internalControl->create(stockMng) == FALSE ){
+	if( _internalControl->create(stockMng) == FALSE ){
 		return FALSE;
 	}
 	return TRUE;
