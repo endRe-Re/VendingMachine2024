@@ -24,12 +24,12 @@ public:
 
 	PROCESSES_RESULT create();										// 下位クラスのインスタンス生成
 
-	SegmentData get_segmentData(SegmentType& segmentType);
+	SegmentData get_segmentData(SegmentType& segmentType);			// 指定種別のデータ取得
 
 private:
 	PROCESSES_RESULT create_segmentMng(FileData& fileData);																// セグメント管理クラスへの情報登録
-	PROCESSES_RESULT convert_fileDataToSegmentRegistVec(FileData& fileData, SegmentRegistVec& segmentRegistVec);		//
-	PROCESSES_RESULT convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, SegmentRegistFormat& segmentRegistFormat);		//
+	PROCESSES_RESULT convert_fileDataToSegmentRegistVec(FileData& fileData, SegmentRegistVec& segmentRegistVec);				// 登録用フォーマット変換
+	PROCESSES_RESULT convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, SegmentRegistFormat& segmentRegistFormat);	// 1セグメント分登録用フォーマット変換
 
 	FileSystem*		_fileSystem;			// ファイルシステムクラス
 	SegmentMng*		_segmentMng;			// セグメント管理クラス

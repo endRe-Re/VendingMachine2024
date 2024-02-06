@@ -15,7 +15,7 @@ public:
 
 	PROCESSES_RESULT create();		// 自クラスを含む各制御クラスの作成
 
-	SegmentData get_segmentData(SegmentType& segmentType);
+	SegmentData get_segmentData(SegmentType& segmentType);	// 指定種別のデータ取得
 
 private:
 

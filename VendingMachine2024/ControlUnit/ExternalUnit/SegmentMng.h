@@ -17,8 +17,8 @@ struct SegmentData{
 	RecordVec	_dataList;			// データ群
 };
 
-using SegmentType		= std::string;									// セグメント種別
-using SegmentTypeVec	= VectorTemp<SegmentType>;
+using SegmentType		= std::string;										// セグメント種別
+using SegmentTypeVec	= VectorTemp<SegmentType>;							// セグメント種別ベクター
 using SegmentUnmap		= std::unordered_map<SegmentType, SegmentData>;		// 全データマップ
 
 #define SEGMENT_SIZE_MIN 3
@@ -28,8 +28,8 @@ class SegmentMng
 public:
 	SegmentMng();
 
-	PROCESSES_RESULT add_segment(SegmentType& segmentType, SegmentData& segmentData);
-	SegmentData get_segmentData(SegmentType& segmentType);
+	PROCESSES_RESULT add_segment(SegmentType& segmentType, SegmentData& segmentData);	// セグメントデータ追加
+	SegmentData get_segmentData(SegmentType& segmentType);								// 指定種別のデータ取得
 
 private:
 	SegmentTypeVec	_segmentTypeVec;		// セグメント種別の一覧

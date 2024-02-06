@@ -15,21 +15,25 @@
 
 #include <vector>
 #include <string>
+#define FILE_PATH		"./inventory.txt"						// 入出力ファイルパス
 
-using OneLineFileData	= VectorTemp<std::string>;
-using FileData			= VectorTemp<OneLineFileData>;
-using InoutFormat		= VectorTemp<std::string>;
+// 入出力はDATA_SPLIT_STR区切りで行われる
+#define DATA_SPLIT_STR	","								// 1行のデータ区切り文字
+using InoutFormat		= VectorTemp<std::string>;		// 入出力形式
+// 他クラスでDATA_SPLIT_STR区切りを意識させないために
+// 読み込んだデータは多重のベクターとして出力する
+using OneLineFileData	= VectorTemp<std::string>;		// 1行分のデータ
+using FileData			= VectorTemp<OneLineFileData>;	// ファイル内容
 
-#define FILE_PATH "./inventory.txt"
 class FileSystem
 {
 public:
 	FileSystem();
 
-	PROCESSES_RESULT load_file(FileData& fileData);
-	PROCESSES_RESULT output_file(FileData& fileData);
+	PROCESSES_RESULT load_file(FileData& fileData);		// ファイル読み込み
+	PROCESSES_RESULT output_file(FileData& fileData);	// ファイル出力
 
 private:
-	void convert_inoutFormatToFileData(InoutFormat& input, FileData& output);
-	void convert_fileDataToInoutFormat(FileData& input, InoutFormat& output);
+	void convert_inoutFormatToFileData(InoutFormat& input, FileData& output);	// 内部読み込み用に変換
+	void convert_fileDataToInoutFormat(FileData& input, InoutFormat& output);	// ファイル出力用に変換
 };
