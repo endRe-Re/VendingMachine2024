@@ -18,7 +18,7 @@
 #define FILE_PATH		"./inventory.txt"						// 入出力ファイルパス
 
 // 入出力はDATA_SPLIT_STR区切りで行われる
-#define DATA_SPLIT_STR	","								// 1行のデータ区切り文字
+#define DATA_SPLIT_STR	','								// 1行のデータ区切り文字
 using InoutFormat		= VectorTemp<std::string>;		// 入出力形式
 // 他クラスでDATA_SPLIT_STR区切りを意識させないために
 // 読み込んだデータは多重のベクターとして出力する

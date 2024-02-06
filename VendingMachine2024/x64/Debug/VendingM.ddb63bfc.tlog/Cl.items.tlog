@@ -1,4 +1,6 @@
 C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\ExternalUnit\ExternalControl.cpp;C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\ExternalControl.obj
+C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\InternalUnit\InternalControl.cpp;C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\InternalControl.obj
+C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\InternalUnit\StateControl.cpp;C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\StateControl.obj
 C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\MainControl.cpp;C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\MainControl.obj
 C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\ExternalUnit\DataMng.cpp;C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\DataMng.obj
 C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\ExternalUnit\FileSystem.cpp;C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\x64\Debug\FileSystem.obj

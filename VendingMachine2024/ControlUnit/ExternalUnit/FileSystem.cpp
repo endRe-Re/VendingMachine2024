@@ -37,7 +37,7 @@ void FileSystem::convert_inoutFormatToFileData(InoutFormat& input, FileData& out
 		std::stringstream	targetLineStream{ targetLine };
 		std::string			word;
 		OneLineFileData		oneLineOutput;
-		while( std::getline(targetLineStream, word, ',') ){
+		while( std::getline(targetLineStream, word, DATA_SPLIT_STR) ){
 			oneLineOutput.push_back( word );
 		}
 		if( oneLineOutput.empty() == true ){
