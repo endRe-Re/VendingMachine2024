@@ -46,9 +46,9 @@ class StateControl
 public:
 	StateControl();
 
-	DisplayFormat make_displayString();
+	void make_displayString(DisplayFormat& didplayFormat);
 	USER_INPUT_ENUM check_userInput();
-	void set_nextState(USER_SELECT_ENUM userSelect);
+	void trans_nextState(USER_SELECT_ENUM userSelect);
 
 private:
 	STATE_ENUM		_state;

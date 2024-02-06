@@ -4,6 +4,7 @@
 // ・自動販売機の内部処理を行うクラス
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "../../UtilityUnit/Utility.h"
+#include "StateControl.h"
 
 class StockMng;
 
@@ -13,7 +14,9 @@ public:
 	InternalControl();
 
 	PROCESSES_RESULT create(StockMng* stockMng);
+	USER_INPUT_ENUM ct(DisplayFormat& didplayFormat);
 
 private:
-	StockMng*	_stockMng;
+	StockMng*		_stockMng;
+	StateControl*	_stateControl
 };

@@ -6,17 +6,15 @@ StateControl::StateControl()
 
 }
 
-DisplayFormat StateControl::make_displayString()
+void StateControl::make_displayString(DisplayFormat& didplayFormat)
 {
-	DisplayFormat retVal;
+	didplayFormat.clear();
 	if( _state == STATE_DEPOSIT_OR_AGGREGATE ){
-		retVal.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_MENU );
-		retVal.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_FIRST );
-		retVal.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_SECOND );
+		didplayFormat.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_MENU );
+		didplayFormat.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_FIRST );
+		didplayFormat.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_SECOND );
 	}
 
-
-	return retVal;
 }
 
 USER_INPUT_ENUM StateControl::check_userInput()
@@ -28,11 +26,10 @@ USER_INPUT_ENUM StateControl::check_userInput()
 	return retVal;
 }
 
-void StateControl::set_nextState(USER_SELECT_ENUM userSelect)
+void StateControl::trans_nextState(USER_SELECT_ENUM userSelect)
 {
 	unsigned long addCount = 0;
-	do
-	{
+	do{
 		++_state;
 		++addCount;
 	}
