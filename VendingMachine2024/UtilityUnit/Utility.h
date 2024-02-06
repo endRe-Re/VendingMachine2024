@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 //! ˆ—Œ‹‰Ê
 enum PROCESSES_RESULT
 {
@@ -9,6 +10,8 @@ enum PROCESSES_RESULT
 
 template<class T>
 using VectorTemp = std::vector<T>;
+
+using DisplayFormat = VectorTemp<std::string>;		// ‰æ–Ê•\¦Œ`®
 
 static const unsigned long NO_EXIST_KEY	= 0;
 
