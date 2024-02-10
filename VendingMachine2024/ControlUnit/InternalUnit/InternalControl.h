@@ -14,9 +14,9 @@ public:
 	InternalControl();
 
 	PROCESSES_RESULT create(StockMng* stockMng);
-	USER_INPUT_ENUM ct(DisplayFormat& didplayFormat);
+	USER_INPUT_ENUM get_displayString(DisplayFormat& displayString);
 
 private:
 	StockMng*		_stockMng;
-	StateControl*	_stateControl
+	StateControl*	_stateControl;
 };

@@ -32,3 +32,12 @@ PROCESSES_RESULT MainControl::create(StockMng* stockMng)
 	}
 	return TRUE;
 }
+
+PROCESSES_RESULT MainControl::start_control()
+{
+	// ƒƒjƒ…[o—Í
+	DisplayFormat displayString;
+	USER_INPUT_ENUM userInputType = _internalControl->get_displayString( displayString );
+	_externalControl->display( displayString );
+	return TRUE;
+}

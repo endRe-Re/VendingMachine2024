@@ -17,10 +17,12 @@ VendingMachine::~VendingMachine()
 
 bool VendingMachine::activation()
 {
+	// 必要情報の作成
 	if( create() == FALSE ){
 		return false;
 	}
-	
+	// メイン制御開始
+	_mainControl->start_control();
 	return true;
 }
 

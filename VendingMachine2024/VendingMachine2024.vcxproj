@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ControlUnit\ExternalUnit\ExternalControl.cpp" />
+    <ClCompile Include="ControlUnit\ExternalUnit\UserInterface.cpp" />
     <ClCompile Include="ControlUnit\InternalUnit\InternalControl.cpp" />
     <ClCompile Include="ControlUnit\InternalUnit\StateControl.cpp" />
     <ClCompile Include="ControlUnit\MainControl.cpp" />
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ControlUnit\ExternalUnit\ExternalControl.h" />
+    <ClInclude Include="ControlUnit\ExternalUnit\UserInterface.h" />
     <ClInclude Include="ControlUnit\InternalUnit\InternalControl.h" />
     <ClInclude Include="ControlUnit\InternalUnit\StateControl.h" />
     <ClInclude Include="ControlUnit\MainControl.h" />

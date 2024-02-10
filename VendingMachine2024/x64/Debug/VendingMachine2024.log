@@ -1,16 +1,2 @@
-﻿  ExternalControl.cpp
-  InternalControl.cpp
-  StateControl.cpp
-  MainControl.cpp
-  DataMng.cpp
-  FileSystem.cpp
-  SegmentMng.cpp
-  main.cpp
-  DrinkStock.cpp
-  GoodsMng.cpp
-  MoneyStock.cpp
-  Stock.cpp
-  StockMng.cpp
-  VendingMachine.cpp
-  コードを生成中...
+﻿  InternalControl.cpp
   VendingMachine2024.vcxproj -> C:\Users\ry_endo\source\repos\VendingMachine2024\x64\Debug\VendingMachine2024.exe

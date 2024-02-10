@@ -1,7 +1,8 @@
 #include "ExternalControl.h"
 
 ExternalControl::ExternalControl()
-: _dataMng(nullptr)
+: _dataMng(nullptr),
+  _userInterface(nullptr)
 {
 }
 
@@ -9,6 +10,8 @@ ExternalControl::~ExternalControl()
 {
 	delete _dataMng;
 	_dataMng = nullptr;
+	delete _userInterface;
+	_userInterface = nullptr;
 }
 
 PROCESSES_RESULT ExternalControl::create()
@@ -21,7 +24,10 @@ PROCESSES_RESULT ExternalControl::create()
 		return FALSE;
 	}
 
-
+	_userInterface = new UserInterface();
+	if( _userInterface == nullptr ){
+		return FALSE;
+	}
 	return TRUE;
 }
 
