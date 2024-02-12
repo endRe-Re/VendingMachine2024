@@ -35,9 +35,11 @@ PROCESSES_RESULT MainControl::create(StockMng* stockMng)
 
 PROCESSES_RESULT MainControl::start_control()
 {
-	// メニュー出力
-	DisplayFormat displayString;
-	USER_INPUT_ENUM userInputType = _internalControl->get_displayString( displayString );
-	_externalControl->display( displayString );
+	while( _internalControl->judge_controlType() == CONTROL_TYPE_CONTINUE ){
+		// メニュー出力
+		DisplayFormat displayString;
+		USER_INPUT_ENUM userInputType = _internalControl->get_displayString( displayString );
+		_externalControl->display( displayString );
+	}
 	return TRUE;
 }

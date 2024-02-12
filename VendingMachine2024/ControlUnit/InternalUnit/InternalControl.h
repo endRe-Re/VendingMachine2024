@@ -15,8 +15,14 @@ public:
 
 	PROCESSES_RESULT create(StockMng* stockMng);
 	USER_INPUT_ENUM get_displayString(DisplayFormat& displayString);
+	CONTROL_TYPE_ENUM judge_controlType();
 
 private:
 	StockMng*		_stockMng;
 	StateControl*	_stateControl;
 };
+
+inline CONTROL_TYPE_ENUM InternalControl::judge_controlType()
+{
+	_stateControl->judge_controlType();
+}

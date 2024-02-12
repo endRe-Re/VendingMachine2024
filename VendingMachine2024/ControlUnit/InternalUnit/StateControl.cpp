@@ -47,15 +47,15 @@ void StateControl::trans_nextState(USER_SELECT_ENUM userSelect)
 			_state = STATE_AGGREGATE;
 			break;
 		case STATE_AGGREGATE:
-			_state = STATE_BUY_OR_FINISH;
+			_state = STATE_AGGREGATE;	//èàóùèIóπÇÃÇΩÇﬂéüÇ…êiÇ‹Ç»Ç¢
 			break;
-		case STATE_BUY_OR_FINISH:
+		case STATE_BUY_OR_OUTPUT_CHANGE:
 			_state = STATE_BUY;
 			break;
 		case STATE_BUY:
-			_state = STATE_FINISH;
+			_state = STATE_OUTPUT_CHANGE;
 			break;
-		case STATE_FINISH:
+		case STATE_OUTPUT_CHANGE:
 			_state = STATE_DEPOSIT_OR_AGGREGATE;
 			break;
 		default:
@@ -64,4 +64,13 @@ void StateControl::trans_nextState(USER_SELECT_ENUM userSelect)
 		++addCount;
 	}
 	while( (USER_SELECT_ENUM)addCount < userSelect );
+}
+
+CONTROL_TYPE_ENUM StateControl::judge_controlType()
+{
+	CONTROL_TYPE_ENUM retVal = CONTROL_TYPE_ENUM::CONTROL_TYPE_CONTINUE;
+	if( _state == STATE_AGGREGATE ){
+		retVal = CONTROL_TYPE_ENUM::CONTROL_TYPE_FINISH;
+	}
+	return retVal;
 }
