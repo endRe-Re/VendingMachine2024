@@ -17,24 +17,24 @@ PROCESSES_RESULT StockMng::create(GoodsInfoVec& drinkInfoVec, GoodsInfoVec& mone
 	// 飲み物在庫クラスの作成
 	_stockVec.emplace_back( new DrinkStock() );
 	if( _stockVec[GOODS_INDEX_DRINK] == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	if( _stockVec[GOODS_INDEX_DRINK]->create(drinkInfoVec) == FALSE ){
-		return FALSE;
+	if( _stockVec[GOODS_INDEX_DRINK]->create(drinkInfoVec) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 	// お金在庫クラスの作成
 	_stockVec.emplace_back( new MoneyStock() );
 	if( _stockVec[GOODS_INDEX_MONEY] == nullptr){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	if( _stockVec[GOODS_INDEX_MONEY]->create(moneyInfoVec) == FALSE ){
-		return FALSE;
+	if( _stockVec[GOODS_INDEX_MONEY]->create(moneyInfoVec) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 PROCESSES_RESULT StockMng::create_forBuyerMoney(GoodsInfoVec& moneyInfoVec)
 {
-	return TRUE;
+	return PROCESSES_TRUE;
 }

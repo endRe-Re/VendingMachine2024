@@ -30,8 +30,8 @@ enum CONTROL_TYPE_ENUM
 //! ユーザーの入力が必要かどうか
 enum USER_INPUT_ENUM
 {
+	USER_INPUT_NON,
 	USER_INPUT_NEED,
-	USER_INPUT_NON
 };
 
 //! ユーザーが選択した選択肢を示す列挙体

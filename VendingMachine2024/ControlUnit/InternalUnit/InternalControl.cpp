@@ -10,14 +10,14 @@ InternalControl::InternalControl()
 PROCESSES_RESULT InternalControl::create(StockMng* stockMng)
 {
 	if( stockMng == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
 	_stockMng		= stockMng;
 	_stateControl	= new StateControl();
 	if( _stateControl == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 USER_INPUT_ENUM InternalControl::get_displayString(DisplayFormat& displayString)

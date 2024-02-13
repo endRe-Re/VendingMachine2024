@@ -13,7 +13,7 @@ PROCESSES_RESULT FileSystem::load_file(FileData& fileData)
 	std::ifstream ifs( FILE_PATH );
 	if( ifs.fail() ){
 		std::cerr << "Failed to open file." << std::endl;
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
 	InoutFormat	inputData;
 	std::string	oneLine;
@@ -21,14 +21,14 @@ PROCESSES_RESULT FileSystem::load_file(FileData& fileData)
 		inputData.push_back( oneLine );
 	}
 	convert_inoutFormatToFileData( inputData, fileData );
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 PROCESSES_RESULT FileSystem::output_file(FileData& fileData)
 {
 	InoutFormat output;
 	convert_fileDataToInoutFormat( fileData, output );
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 void FileSystem::convert_inoutFormatToFileData(InoutFormat& input, FileData& output)

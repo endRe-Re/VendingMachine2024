@@ -20,10 +20,10 @@ PROCESSES_RESULT Stock::create_stocker(GoodsInfoVec& goodsInfoVec, GoodsMng* goo
 {
 	goodsMng = new GoodsMng;
 	if( goodsMng == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
 	for( auto goodsInfo : goodsInfoVec){
 		goodsMng->regist_goodsData( goodsInfo._name, goodsInfo._data );
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }

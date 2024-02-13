@@ -66,7 +66,7 @@ void StateControl::trans_nextState(USER_SELECT_ENUM userSelect)
 	while( (USER_SELECT_ENUM)addCount < userSelect );
 }
 
-CONTROL_TYPE_ENUM StateControl::judge_controlType()
+CONTROL_TYPE_ENUM StateControl::judge_controlTypeBaseState()
 {
 	CONTROL_TYPE_ENUM retVal = CONTROL_TYPE_ENUM::CONTROL_TYPE_CONTINUE;
 	if( _state == STATE_AGGREGATE ){

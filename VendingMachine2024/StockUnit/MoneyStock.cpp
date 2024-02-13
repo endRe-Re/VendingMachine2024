@@ -17,9 +17,9 @@ PROCESSES_RESULT MoneyStock::create_buyer(GoodsInfoVec& goodsInfoVec)
 {
 	// ç›å…ÇÃê∂ê¨
 	PROCESSES_RESULT retVal = create_stocker( goodsInfoVec, _buyer );
-	if( retVal == FALSE ){
-		return FALSE;
+	if( retVal == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 

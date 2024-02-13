@@ -18,17 +18,17 @@ PROCESSES_RESULT ExternalControl::create()
 {
 	_dataMng = new DataMng();
 	if( _dataMng == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	if( _dataMng->create() == FALSE ){
-		return FALSE;
+	if( _dataMng->create() == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 
 	_userInterface = new UserInterface();
 	if( _userInterface == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 

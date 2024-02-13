@@ -15,7 +15,7 @@ PROCESSES_RESULT SegmentMng::add_segment(SegmentType& segmentType, SegmentData& 
 	// ƒf[ƒ^•”‚ğ’Ç‰Á‚·‚é
 	std::copy( segmentData._dataList.begin(), segmentData._dataList.end(), std::back_inserter(_segmentUnmap[segmentType]._dataList) );
 	
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 SegmentData SegmentMng::get_segmentData(SegmentType& segmentType)

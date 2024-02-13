@@ -18,7 +18,7 @@ VendingMachine::~VendingMachine()
 bool VendingMachine::activation()
 {
 	// 必要情報の作成
-	if( create() == FALSE ){
+	if( create() == PROCESSES_FALSE ){
 		return false;
 	}
 	// メイン制御開始
@@ -31,40 +31,40 @@ PROCESSES_RESULT VendingMachine::create()
 	// 在庫管理クラス作成
 	_stockMng = new StockMng();
 	if( _stockMng == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
 	// メイン制御クラス作成
 	_mainControl = new MainControl();
 	if( _mainControl == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	if( _mainControl->create(_stockMng) == FALSE ){
-		return FALSE;
+	if( _mainControl->create(_stockMng) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 
-	if( create_stockMng() == FALSE ){
-		return FALSE;
+	if( create_stockMng() == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 PROCESSES_RESULT VendingMachine::create_stockMng()
 {
 	// 飲み物情報の取得から在庫に設定する形への変換
 	GoodsInfoVec drinkInfoVec;
-	if( convert_segmentDataToGoodsInfoVec(USE_SEGMENT_TYPE_DRINK, drinkInfoVec) == FALSE ){
-		return FALSE;
+	if( convert_segmentDataToGoodsInfoVec(USE_SEGMENT_TYPE_DRINK, drinkInfoVec) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 	// お金情報の取得から在庫に設定する形への変換
 	GoodsInfoVec moneyInfoVec;
-	if( convert_segmentDataToGoodsInfoVec(USE_SEGMENT_TYPE_MONEY, moneyInfoVec) == FALSE ){
-		return FALSE;
+	if( convert_segmentDataToGoodsInfoVec(USE_SEGMENT_TYPE_MONEY, moneyInfoVec) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 	// 在庫管理クラスの作成、初期情報設定
-	if( _stockMng->create(drinkInfoVec, moneyInfoVec) == FALSE ){
-		return FALSE;
+	if( _stockMng->create(drinkInfoVec, moneyInfoVec) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 PROCESSES_RESULT VendingMachine::convert_segmentDataToGoodsInfoVec(SegmentType targetType, GoodsInfoVec& goodsInfoVec)
@@ -84,5 +84,5 @@ PROCESSES_RESULT VendingMachine::convert_segmentDataToGoodsInfoVec(SegmentType t
 		info._name = dataRecord[0];
 		goodsInfoVec.push_back( info );
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }

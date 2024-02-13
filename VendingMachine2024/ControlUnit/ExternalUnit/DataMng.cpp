@@ -20,34 +20,34 @@ PROCESSES_RESULT DataMng::create()
 {
 	_fileSystem = new FileSystem();
 	if( _fileSystem == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
 	FileData fileData;
-	if( _fileSystem->load_file(fileData) == FALSE ){
-		return FALSE;
+	if( _fileSystem->load_file(fileData) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 	_segmentMng = new SegmentMng();
 	if( _segmentMng == nullptr ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
-	if( create_segmentMng(fileData) == FALSE ){
-		return FALSE;
+	if( create_segmentMng(fileData) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;
 	}
 
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 // 受け取ったファイルデータをセグメント管理出来る形に変換して登録する
 PROCESSES_RESULT DataMng::create_segmentMng(FileData& fileData)
 {
 	SegmentRegistVec segmentRegistVec;
-	if( convert_fileDataToSegmentRegistVec(fileData, segmentRegistVec) == FALSE ){
-		return FALSE;	// ファイル形式エラー
+	if( convert_fileDataToSegmentRegistVec(fileData, segmentRegistVec) == PROCESSES_FALSE ){
+		return PROCESSES_FALSE;	// ファイル形式エラー
 	}
 	for( auto segmentRegist : segmentRegistVec ){
 		_segmentMng->add_segment( segmentRegist.first, segmentRegist.second );
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 // ファイルデータをセグメント登録できる形のvectorに変換する
@@ -56,9 +56,9 @@ PROCESSES_RESULT DataMng::create_segmentMng(FileData& fileData)
 // 引数　fileData：ファイルデータ、segmentRegistVec：セグメント登録用リスト
 PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistVec(FileData& fileData, SegmentRegistVec& segmentRegistVec)
 {
-	PROCESSES_RESULT	retVal = TRUE;
+	PROCESSES_RESULT	retVal = PROCESSES_TRUE;
 	FileData forOneSegment;
-	for( auto it = fileData.begin(); retVal == TRUE; ){
+	for( auto it = fileData.begin(); retVal == PROCESSES_TRUE; ){
 		// ファイル終端に到達したため、1セグメントとして変換
 		bool doConvert = false;
 		if( it == fileData.end() ){
@@ -84,14 +84,14 @@ PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistVec(FileData& fileData,
 		forOneSegment.push_back( *it );
 		++it;
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
 
 // 1セグメント分のファイルデータからセグメント登録用フォーマットへ変換する
 PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistFormat(FileData& forOneSegment, SegmentRegistFormat& segmentRegistFormat)
 {
 	if( (unsigned long)forOneSegment.size() < SEGMENT_SIZE_MIN ){
-		return FALSE;
+		return PROCESSES_FALSE;
 	}
 	auto convertPoint						= forOneSegment.begin();
 	// セグメント種別とセクション名を取得
@@ -102,9 +102,9 @@ PROCESSES_RESULT DataMng::convert_fileDataToSegmentRegistFormat(FileData& forOne
 	// データ部を取得
 	for( convertPoint; convertPoint != forOneSegment.end(); ++convertPoint ){
 		if( segmentRegistFormat.second._sectionName.size() != (*convertPoint).size() ){
-			return FALSE;	// セクションネーム分データがない場合、エラー
+			return PROCESSES_FALSE;	// セクションネーム分データがない場合、エラー
 		}
 		segmentRegistFormat.second._dataList.push_back( *convertPoint );
 	}
-	return TRUE;
+	return PROCESSES_TRUE;
 }
