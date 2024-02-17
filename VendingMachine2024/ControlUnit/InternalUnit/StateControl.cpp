@@ -17,7 +17,7 @@ void StateControl::make_displayString(DisplayFormat& didplayFormat)
 
 }
 
-USER_INPUT_ENUM StateControl::check_userInput()
+USER_INPUT_ENUM StateControl::check_userInputForState()
 {
 	USER_INPUT_ENUM retVal = USER_INPUT_NON;
 	if( _state == STATE_ENUM::STATE_DEPOSIT_OR_AGGREGATE ){

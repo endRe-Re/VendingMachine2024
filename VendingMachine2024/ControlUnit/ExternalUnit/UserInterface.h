@@ -12,7 +12,7 @@ class UserInterface
 public:
 	UserInterface();
 
-	UInt input_uInt(ENTER_ONLY_ENUM isEnterOnly);
+	UInt input_uInt(ENTER_ONLY_ENUM& isEnterOnly);
 	void display(DisplayFormat& target);
 
 private:

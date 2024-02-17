@@ -5,9 +5,9 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "../UtilityUnit/Utility.h"
 #include "ExternalUnit/ExternalControl.h"
+#include "InternalUnit/InternalControl.h"
 
 class StockMng;
-class InternalControl;
 
 class MainControl
 {
@@ -17,6 +17,7 @@ public:
 
 	PROCESSES_RESULT create(StockMng* stockMng);		// 自クラスを含む各制御クラスの作成
 	PROCESSES_RESULT start_control();
+	PROCESSES_RESULT start_controlForInputNeed();
 
 	SegmentData get_segmentData(SegmentType& segmentType);
 

@@ -5,7 +5,7 @@ UserInterface::UserInterface()
 {
 }
 
-UInt UserInterface::input_uInt(ENTER_ONLY_ENUM isEnterOnly)
+UInt UserInterface::input_uInt(ENTER_ONLY_ENUM& isEnterOnly)
 {
 	UInt retVal = UINT_INIT;
 	return retVal;

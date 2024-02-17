@@ -17,12 +17,6 @@ enum STATE_ENUM
 	STATE_NUM								// 定義数
 };
 
-enum CONTROL_TYPE_ENUM
-{
-	CONTROL_TYPE_CONTINUE,
-	CONTROL_TYPE_FINISH
-};
-
 #define DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_MENU		"入金か集計を選択"
 #define DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_FIRST	"1.入金"
 #define DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_SECOND	"2.集計"
@@ -56,9 +50,9 @@ public:
 	StateControl();
 
 	void make_displayString(DisplayFormat& didplayFormat);
-	USER_INPUT_ENUM check_userInput();
+	USER_INPUT_ENUM check_userInputForState();
 	void trans_nextState(USER_SELECT_ENUM userSelect);
-	CONTROL_TYPE_ENUM judge_controlType();
+	CONTROL_TYPE_ENUM judge_controlTypeBaseState();
 
 private:
 	STATE_ENUM		_state;
