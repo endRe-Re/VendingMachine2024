@@ -51,7 +51,7 @@ PROCESSES_RESULT MainControl::start_controlForInputNeed()
 	while( userInputEnum == USER_INPUT_NEED ){
 		ENTER_ONLY_ENUM	isEnterOnly	= ENTER_ONLY_NON;
 		UInt			userInput	= _externalControl->input_uInt( isEnterOnly );
-		DisplayFormat displayString;
+		DisplayFormat	displayString;
 		userInputEnum = _internalControl->check_userInput( userInput, displayString );
 	}
 	return PROCESSES_TRUE;
