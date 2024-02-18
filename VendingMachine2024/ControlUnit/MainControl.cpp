@@ -49,10 +49,13 @@ PROCESSES_RESULT MainControl::start_controlForInputNeed()
 {
 	USER_INPUT_ENUM userInputEnum = _internalControl->check_userInputForState();
 	while( userInputEnum == USER_INPUT_NEED ){
-		ENTER_ONLY_ENUM	isEnterOnly	= ENTER_ONLY_NON;
-		UInt			userInput	= _externalControl->input_uInt( isEnterOnly );
-		DisplayFormat	displayString;
-		userInputEnum = _internalControl->check_userInput( userInput, displayString );
+		ENTER_ONLY_ENUM		isEnterOnly			= ENTER_ONLY_NON;
+		UInt				userInput			= _externalControl->input_uInt( isEnterOnly );
+		DisplayFormat		errorString;
+		PROCESSES_RESULT	inputCheckResult	= _internalControl->check_userInput( userInput, errorString );
+		if( inputCheckResult == PROCESSES_FALSE ){
+			_externalControl->display( errorString );
+		}
 	}
 	return PROCESSES_TRUE;
 }

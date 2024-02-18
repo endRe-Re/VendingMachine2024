@@ -25,7 +25,7 @@ void InternalControl::get_displayString(DisplayFormat& displayString)
 	_stateControl->make_displayString( displayString );
 }
 
-USER_INPUT_ENUM InternalControl::check_userInput(UInt userInput, DisplayFormat& displayString)
+PROCESSES_RESULT InternalControl::check_userInput(UInt userInput, DisplayFormat& displayString)
 {
-	return USER_INPUT_ENUM();
+	return PROCESSES_RESULT();
 }

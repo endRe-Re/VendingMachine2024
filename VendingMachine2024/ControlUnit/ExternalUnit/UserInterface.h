@@ -1,6 +1,7 @@
 #pragma once
 #include "../../UtilityUnit/Utility.h"
 
+#define ENTER_KYE_INPUT		'\n'
 enum ENTER_ONLY_ENUM
 {
 	ENTER_ONLY_NON,
@@ -16,4 +17,6 @@ public:
 	void display(DisplayFormat& target);
 
 private:
+	String input_string();
+	PROCESSES_RESULT contains_multibyte(const String& target);
 };

@@ -1,19 +1,2 @@
-﻿  ExternalControl.cpp
-  UserInterface.cpp
-  InternalControl.cpp
-  StateControl.cpp
-  MainControl.cpp
-  DataMng.cpp
-  FileSystem.cpp
-  SegmentMng.cpp
-  main.cpp
-  DrinkStock.cpp
-  GoodsMng.cpp
-  MoneyStock.cpp
-  Stock.cpp
-  StockMng.cpp
-  Utility.cpp
-  VendingMachine.cpp
-  コードを生成中...
-C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\InternalUnit\InternalControl.h(29): error C4716: 'InternalControl::judge_controlTypeBaseState': 値を返さなければいけません
-C:\Users\ry_endo\source\repos\VendingMachine2024\VendingMachine2024\ControlUnit\InternalUnit\InternalControl.h(34): error C4716: 'InternalControl::check_userInput': 値を返さなければいけません
+﻿  UserInterface.cpp
+  VendingMachine2024.vcxproj -> C:\Users\x390\source\repos\endRe-Re\VendingMachine2024\x64\Debug\VendingMachine2024.exe
