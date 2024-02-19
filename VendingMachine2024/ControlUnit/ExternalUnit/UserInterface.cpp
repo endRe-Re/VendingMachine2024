@@ -9,24 +9,33 @@ UserInterface::UserInterface()
 
 UInt UserInterface::input_uInt(ENTER_ONLY_ENUM& isEnterOnly)
 {
-	isEnterOnly		= ENTER_ONLY_NON;
-	UInt	retVal	= UINT_INIT;
-	String	input	= input_string();
-	// エンターキーのみ
-	if( input.empty() == true ){
-		isEnterOnly = ENTER_ONLY_TRUE;
-	}
-	// 全角文字を含む
-	else if( contains_multibyte(input) == true ){
-	
-	}
-	// 半角数字のみ
-	else if( std::all_of(input.cbegin(), input.cend(), isdigit) == true ){
-		retVal = std::stoi( input );
-	}
-	// 半角数字以外を含む
-	else{
-	
+	isEnterOnly			= ENTER_ONLY_NON;
+	UInt retVal			= UINT_INIT;
+	bool checkResult	= false;
+	while( checkResult == false ){
+		String			input = input_string();
+		DisplayFormat	target;
+		// 全角文字を含む
+		if( contains_multibyte(input) == PROCESSES_TRUE ){
+			target.push_back("全角文字には非対応です");
+			target.push_back("再入力してください");
+		}
+		// 半角数字以外を含む
+		else if( std::all_of(input.cbegin(), input.cend(), isdigit) == false ){
+			target.push_back("数字のみを入力してください");
+			target.push_back("再入力してください");
+		}
+		// エンターキーのみ
+		else if( input.empty() == true ){
+			isEnterOnly = ENTER_ONLY_TRUE;
+			checkResult = true;
+		}
+		// 半角数字のみ
+		else{
+			retVal		= std::stoi( input );
+			checkResult	= true;
+		}
+		display( target );
 	}
 	return retVal;
 }

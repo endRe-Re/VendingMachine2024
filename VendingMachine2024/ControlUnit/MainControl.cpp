@@ -55,6 +55,7 @@ PROCESSES_RESULT MainControl::start_controlForInputNeed()
 		PROCESSES_RESULT	inputCheckResult	= _internalControl->check_userInput( userInput, errorString );
 		if( inputCheckResult == PROCESSES_FALSE ){
 			_externalControl->display( errorString );
+			continue;
 		}
 	}
 	return PROCESSES_TRUE;
