@@ -15,7 +15,6 @@ public:
 
 	PROCESSES_RESULT create(StockMng* stockMng);				// 
 	void get_displayString(DisplayFormat& displayString);		// 
-	PROCESSES_RESULT check_userInput(UInt userInput, DisplayFormat& displayString);		//
 	PROCESSES_RESULT read_userInput(UInt userInputn, DisplayFormat& displayString);		//
 
 	CONTROL_TYPE_ENUM judge_controlTypeBaseState();				// 

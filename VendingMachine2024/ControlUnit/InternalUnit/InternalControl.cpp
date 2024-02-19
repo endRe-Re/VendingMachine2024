@@ -25,7 +25,7 @@ void InternalControl::get_displayString(DisplayFormat& displayString)
 	_stateControl->make_displayString( displayString );
 }
 
-PROCESSES_RESULT InternalControl::check_userInput(UInt userInput, DisplayFormat& displayString)
+PROCESSES_RESULT InternalControl::read_userInput(UInt userInputn, DisplayFormat& displayString)
 {
 	return PROCESSES_RESULT();
 }

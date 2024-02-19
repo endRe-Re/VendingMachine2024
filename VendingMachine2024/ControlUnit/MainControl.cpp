@@ -51,12 +51,15 @@ PROCESSES_RESULT MainControl::start_controlForInputNeed()
 	while( userInputEnum == USER_INPUT_NEED ){
 		ENTER_ONLY_ENUM		isEnterOnly			= ENTER_ONLY_NON;
 		UInt				userInput			= _externalControl->input_uInt( isEnterOnly );
-		DisplayFormat		errorString;
-		PROCESSES_RESULT	inputCheckResult	= _internalControl->check_userInput( userInput, errorString );
+		// 入力内容を読み込み、内容次第で次へ遷移させる
+		// 指示内容かエラー内容が出力される
+		DisplayFormat		guideString;
+		PROCESSES_RESULT	inputCheckResult	= _internalControl->read_userInput( userInput, guideString );
+		_externalControl->display( guideString );	// 次の操作指示がされる
 		if( inputCheckResult == PROCESSES_FALSE ){
-			_externalControl->display( errorString );
-			continue;
+			return inputCheckResult;
 		}
+		userInputEnum = _internalControl->check_userInputForState();
 	}
 	return PROCESSES_TRUE;
 }
