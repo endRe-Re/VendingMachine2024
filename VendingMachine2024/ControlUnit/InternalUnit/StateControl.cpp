@@ -74,3 +74,28 @@ CONTROL_TYPE_ENUM StateControl::judge_controlTypeBaseState()
 	}
 	return retVal;
 }
+
+INPUT_CHECK_TYPE_ENUM StateControl::judge_inputCheckType()
+{
+	INPUT_CHECK_TYPE_ENUM retVal = INPUT_CHECK_TYPE_NONE;
+	switch( _state )
+	{
+	case STATE_DEPOSIT_OR_AGGREGATE:
+	case STATE_BUY_OR_OUTPUT_CHANGE:
+		retVal = INPUT_CHECK_TYPE_STATE;
+		break;
+	case STATE_DEPOSIT:
+		retVal = INPUT_CHECK_TYPE_MONEY;
+		break;
+	case STATE_BUY:
+		retVal = INPUT_CHECK_TYPE_STOCK;
+		break;
+	case STATE_AGGREGATE:
+	case STATE_OUTPUT_CHANGE:
+		retVal = INPUT_CHECK_TYPE_NONE;
+		break;
+	default:
+		break;
+	}
+	return retVal;
+}

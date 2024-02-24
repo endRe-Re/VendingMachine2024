@@ -44,6 +44,15 @@ enum CONTROL_TYPE_ENUM
 	CONTROL_TYPE_FINISH				// 終了
 };
 
+//! 入力チェック種別
+enum INPUT_CHECK_TYPE_ENUM
+{
+	INPUT_CHECK_TYPE_NONE,			// 入力不要
+	INPUT_CHECK_TYPE_STATE,			// 状態入力
+	INPUT_CHECK_TYPE_MONEY,			// お金入力
+	INPUT_CHECK_TYPE_STOCK			// 商品入力
+};
+
 class StateControl
 {
 public:
@@ -53,6 +62,7 @@ public:
 	USER_INPUT_ENUM check_userInputForState();
 	void trans_nextState(USER_SELECT_ENUM userSelect);
 	CONTROL_TYPE_ENUM judge_controlTypeBaseState();
+	INPUT_CHECK_TYPE_ENUM judge_inputCheckType();
 
 private:
 	STATE_ENUM		_state;

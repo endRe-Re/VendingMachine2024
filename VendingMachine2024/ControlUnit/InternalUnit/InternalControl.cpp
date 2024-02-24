@@ -25,7 +25,28 @@ void InternalControl::get_displayString(DisplayFormat& displayString)
 	_stateControl->make_displayString( displayString );
 }
 
-PROCESSES_RESULT InternalControl::read_userInput(UInt userInputn, DisplayFormat& displayString)
+//入力内容をチェックしてから正しい指定であれば読み込んで次に遷移させる
+// 指定が違っていれば、どう違うのかを出力文字列として設定する
+PROCESSES_RESULT InternalControl::read_userInput(UInt userInput, DisplayFormat& displayString)
 {
-	return PROCESSES_RESULT();
+	INPUT_CHECK_TYPE_ENUM inputChkType = _stateControl->judge_inputCheckType();
+	// 状態入力
+	if( inputChkType == INPUT_CHECK_TYPE_STATE ){
+		if( (USER_SELECT_NONE < userInput) && (userInput < USER_SELECT_NUM) ){
+			_stateControl->trans_nextState( (USER_SELECT_ENUM)userInput );
+		}
+		else{
+		
+		}
+	}
+	// お金入力
+	else if( inputChkType == INPUT_CHECK_TYPE_MONEY ){
+	
+	}
+	// 商品入力
+	else if( inputChkType == INPUT_CHECK_TYPE_STOCK ){
+	
+	}
+	else{}
+	return PROCESSES_TRUE;
 }
