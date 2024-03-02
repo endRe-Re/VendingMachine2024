@@ -17,7 +17,7 @@ public:
 
 	PROCESSES_RESULT create(StockMng* stockMng);		// 自クラスを含む各制御クラスの作成
 	PROCESSES_RESULT start_control();
-	PROCESSES_RESULT start_controlForInputNeed();
+	void start_controlForInputNeed();
 
 	SegmentData get_segmentData(SegmentType& segmentType);
 

@@ -22,6 +22,7 @@ public:
 	PROCESSES_RESULT create(StockMng* stockMng);				// 
 	void get_displayString(DisplayFormat& displayString);		// 
 	INPUT_TYPE_ENUM read_userInput(UInt userInput, DisplayFormat& displayString);		//
+	void trans_nextStateForNonInput(DisplayFormat& displayString);		//
 
 	CONTROL_TYPE_ENUM judge_controlTypeBaseState();				// 
 	USER_INPUT_ENUM check_userInputForState();					// 

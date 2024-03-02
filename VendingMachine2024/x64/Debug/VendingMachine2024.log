@@ -1,8 +1,5 @@
-﻿  UserInterface.cpp
-  InternalControl.cpp
-  StateControl.cpp
+﻿  StateControl.cpp
   MainControl.cpp
-  VendingMachine.cpp
   main.cpp
   コードを生成中...
   VendingMachine2024.vcxproj -> C:\Users\x390\source\repos\endRe-Re\VendingMachine2024\x64\Debug\VendingMachine2024.exe

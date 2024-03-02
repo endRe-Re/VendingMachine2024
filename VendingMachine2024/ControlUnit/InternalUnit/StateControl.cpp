@@ -47,7 +47,8 @@ void StateControl::trans_nextState(USER_SELECT_ENUM userSelect)
 			_state = STATE_AGGREGATE;
 			break;
 		case STATE_AGGREGATE:
-			_state = STATE_AGGREGATE;	//èàóùèIóπÇÃÇΩÇﬂéüÇ…êiÇ‹Ç»Ç¢
+		case STATE_END:
+			_state = STATE_END;
 			break;
 		case STATE_BUY_OR_OUTPUT_CHANGE:
 			_state = STATE_BUY;
@@ -69,7 +70,7 @@ void StateControl::trans_nextState(USER_SELECT_ENUM userSelect)
 CONTROL_TYPE_ENUM StateControl::judge_controlTypeBaseState()
 {
 	CONTROL_TYPE_ENUM retVal = CONTROL_TYPE_ENUM::CONTROL_TYPE_CONTINUE;
-	if( _state == STATE_AGGREGATE ){
+	if( _state == STATE_END ){
 		retVal = CONTROL_TYPE_ENUM::CONTROL_TYPE_FINISH;
 	}
 	return retVal;

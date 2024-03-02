@@ -51,3 +51,8 @@ INPUT_TYPE_ENUM InternalControl::read_userInput(UInt userInput, DisplayFormat& d
 	else{}
 	return retVal;
 }
+
+void InternalControl::trans_nextStateForNonInput(DisplayFormat& displayString)
+{
+	_stateControl->trans_nextState( USER_SELECT_NONE );
+}

@@ -10,6 +10,8 @@ MainControl::~MainControl()
 {
 	delete _externalControl;
 	_externalControl = nullptr;
+	delete _internalControl;
+	_internalControl = nullptr;
 }
 
 PROCESSES_RESULT MainControl::create(StockMng* stockMng)
@@ -39,18 +41,21 @@ PROCESSES_RESULT MainControl::start_control()
 		DisplayFormat	displayString;
 		_internalControl->get_displayString( displayString );
 		_externalControl->display( displayString );
-		// ユーザー入力必要時の処理
-		start_controlForInputNeed();
+		USER_INPUT_ENUM userInputEnum = _internalControl->check_userInputForState();
+		if( userInputEnum == USER_INPUT_NEED ){
+			start_controlForInputNeed();	// ユーザー入力必要時の処理
+		}
+		else{
+			DisplayFormat guideString;
+			_internalControl->trans_nextStateForNonInput( guideString );
+			_externalControl->display( displayString );
+		}
 	}
 	return PROCESSES_TRUE;
 }
 
-PROCESSES_RESULT MainControl::start_controlForInputNeed()
+void MainControl::start_controlForInputNeed()
 {
-	USER_INPUT_ENUM userInputEnum = _internalControl->check_userInputForState();
-	if( userInputEnum != USER_INPUT_NEED ){
-		return PROCESSES_TRUE;
-	}
 	INPUT_TYPE_ENUM	inputCheckResult = INPUT_TYPE_RETRY;
 	while( inputCheckResult == INPUT_TYPE_RETRY ){
 		ENTER_ONLY_ENUM	isEnterOnly			= ENTER_ONLY_NON;
@@ -59,7 +64,6 @@ PROCESSES_RESULT MainControl::start_controlForInputNeed()
 		// 指示内容かエラー内容が出力される
 		DisplayFormat	guideString;
 		INPUT_TYPE_ENUM	inputCheckResult	= _internalControl->read_userInput( userInput, guideString );
-		_externalControl->display( guideString );	// 次の操作指示がされる
+		_externalControl->display( guideString );	// 読み込んだ結果が表示される
 	}
-	return PROCESSES_TRUE;
 }
