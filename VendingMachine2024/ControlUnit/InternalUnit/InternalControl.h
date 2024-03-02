@@ -6,6 +6,12 @@
 #include "../../UtilityUnit/Utility.h"
 #include "StateControl.h"
 
+enum INPUT_TYPE_ENUM
+{
+	INPUT_TYPE_OK,
+	INPUT_TYPE_RETRY
+};
+
 class StockMng;
 
 class InternalControl
@@ -15,7 +21,7 @@ public:
 
 	PROCESSES_RESULT create(StockMng* stockMng);				// 
 	void get_displayString(DisplayFormat& displayString);		// 
-	PROCESSES_RESULT read_userInput(UInt userInput, DisplayFormat& displayString);		//
+	INPUT_TYPE_ENUM read_userInput(UInt userInput, DisplayFormat& displayString);		//
 
 	CONTROL_TYPE_ENUM judge_controlTypeBaseState();				// 
 	USER_INPUT_ENUM check_userInputForState();					// 
