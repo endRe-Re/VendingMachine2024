@@ -14,6 +14,12 @@ void StateControl::make_displayString(DisplayFormat& didplayFormat)
 		didplayFormat.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_FIRST );
 		didplayFormat.push_back( DEPOSIT_OR_AGGREGATE_SELECT_OUTPUT_SECOND );
 	}
+	else if( _state == STATE_ENUM::STATE_DEPOSIT ){
+	
+	}
+	else if( _state == STATE_ENUM::STATE_AGGREGATE ){
+	
+	}
 
 }
 
@@ -98,5 +104,18 @@ INPUT_CHECK_TYPE_ENUM StateControl::judge_inputCheckType()
 	default:
 		break;
 	}
+	return retVal;
+}
+
+DISPLAY_TYPE_ENUM StateControl::judge_displayType()
+{
+	DISPLAY_TYPE_ENUM retVal = DISPLAY_TYPE_STATE_ONLY;
+	if( _state == STATE_AGGREGATE ){
+		retVal = DISPLAY_TYPE_AGGREGATE;
+	}
+	else if( _state == STATE_OUTPUT_CHANGE ){
+		retVal = DISPLAY_TYPE_OUTPUT_CHANGE;
+	}
+	else{}
 	return retVal;
 }

@@ -54,6 +54,13 @@ enum INPUT_CHECK_TYPE_ENUM
 	INPUT_CHECK_TYPE_STOCK			// è§ïiì¸óÕ
 };
 
+enum DISPLAY_TYPE_ENUM
+{
+	DISPLAY_TYPE_STATE_ONLY,
+	DISPLAY_TYPE_AGGREGATE,
+	DISPLAY_TYPE_OUTPUT_CHANGE
+};
+
 class StateControl
 {
 public:
@@ -64,6 +71,7 @@ public:
 	void trans_nextState(USER_SELECT_ENUM userSelect);
 	CONTROL_TYPE_ENUM judge_controlTypeBaseState();
 	INPUT_CHECK_TYPE_ENUM judge_inputCheckType();
+	DISPLAY_TYPE_ENUM judge_displayType();
 
 private:
 	STATE_ENUM		_state;

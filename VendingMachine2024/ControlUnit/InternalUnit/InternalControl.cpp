@@ -23,6 +23,15 @@ PROCESSES_RESULT InternalControl::create(StockMng* stockMng)
 void InternalControl::get_displayString(DisplayFormat& displayString)
 {
 	_stateControl->make_displayString( displayString );
+	DISPLAY_TYPE_ENUM displayType = _stateControl->judge_displayType();
+	// 集計内容出力
+	if( displayType == DISPLAY_TYPE_AGGREGATE ){
+		
+	}
+	// 釣り銭出力
+	else if( displayType == DISPLAY_TYPE_OUTPUT_CHANGE ){
+	}
+	else{}
 }
 
 //入力内容をチェックしてから正しい指定であれば読み込んで次に遷移させる

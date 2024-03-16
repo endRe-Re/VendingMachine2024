@@ -25,6 +25,7 @@ public:
 	PROCESSES_RESULT create(GoodsInfoVec& drinkInfoVec, GoodsInfoVec& moneyInfoVec);
 	PROCESSES_RESULT create_forBuyerMoney(GoodsInfoVec& moneyInfoVec);
 
+	void output_aggregate(DisplayFormat& result);
 private:
 	StockVec _stockVec;
 };

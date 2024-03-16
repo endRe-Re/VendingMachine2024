@@ -38,3 +38,8 @@ PROCESSES_RESULT StockMng::create_forBuyerMoney(GoodsInfoVec& moneyInfoVec)
 {
 	return PROCESSES_TRUE;
 }
+
+void StockMng::output_aggregate(DisplayFormat& result)
+{
+
+}
